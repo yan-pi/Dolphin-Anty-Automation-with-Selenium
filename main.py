@@ -63,18 +63,38 @@ def create_profiles():
         profiles.append(profile)
 
     create_profiles_in_bulk(profiles)
-    messagebox.showinfo("Sucesso", "Perfis criados com sucesso.")
+    print("Sucesso", "Perfis criados com sucesso.")
     
+    print("Chamando list_and_open_profiles...")
     # Abrir perfis criados
     list_and_open_profiles()
 
 def list_and_open_profiles():
     profiles_response = list_browsers()
     profiles = profiles_response.get('data', [])
-    for profile in profiles:
+    
+    drivers = []  # Lista para armazenar todos os drivers abertos
+    
+    for index, profile in enumerate(profiles):
         profile_id = profile['id']
-        open_profile(profile_id)
-        time.sleep(2)  # Adiciona um atraso de 2 segundos entre as aberturas de perfil
+        print(f"Abrindo perfil {profile_id}...")
+        
+        try:
+            driver = open_profile(profile_id)
+            if driver:
+                drivers.append(driver)
+                # Mover a janela para uma posição diferente
+                x_offset = (index % 3) * 400  # Mudança horizontal
+                y_offset = (index // 3) * 400  # Mudança vertical
+                driver.set_window_position(x_offset, y_offset)
+            
+            time.sleep(1)  # Aumente o tempo de espera para 15 segundos entre cada abertura
+        except Exception as e:
+            print(f"Erro ao iniciar o perfil {profile_id}: {e}")
+            continue
+
+    return drivers
+
 
 
 def setup_gui():

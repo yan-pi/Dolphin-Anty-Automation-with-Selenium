@@ -76,3 +76,14 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 
 For any questions or support, please open an issue in the repository.
 
+## TODO:
+
+falta pro lançamento:
+- interface da rise
+- autenticação com login e senha do bot
+- subir a extenção pelo proprio bot via API do dolphin (pode ser ponto de melhoria)
+- url de login inicial das plataformas para abrir os perfis direto na url certa
+- ao finalizar o deve apagar os perfis e proxys
+
+observações:
+- vamos enviar o chrome-driver e a extenção junto aos arquivos do bot

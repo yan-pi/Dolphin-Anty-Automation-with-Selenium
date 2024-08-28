@@ -3,6 +3,7 @@ from tkinter import messagebox
 from create_profile import create_profiles_in_bulk, update_profile
 from open_profile import open_profile
 from delete_browsers import list_browsers, delete_browser
+import time
 
 def get_proxies(text_widget):
     proxies = text_widget.get("1.0", tk.END).strip().split("\n")
@@ -63,6 +64,18 @@ def create_profiles():
 
     create_profiles_in_bulk(profiles)
     messagebox.showinfo("Sucesso", "Perfis criados com sucesso.")
+    
+    # Abrir perfis criados
+    list_and_open_profiles()
+
+def list_and_open_profiles():
+    profiles_response = list_browsers()
+    profiles = profiles_response.get('data', [])
+    for profile in profiles:
+        profile_id = profile['id']
+        open_profile(profile_id)
+        time.sleep(2)  # Adiciona um atraso de 2 segundos entre as aberturas de perfil
+
 
 def setup_gui():
     root = tk.Tk()

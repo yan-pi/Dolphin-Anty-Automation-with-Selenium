@@ -3,10 +3,12 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 import os
 from dotenv import load_dotenv
+import time
 
 load_dotenv()
 
 auth_token = os.getenv('AUTH_TOKEN')
+chromedriver_path = os.getenv('CHROMEDRIVER_PATH', 'C:/Users/HP/Desktop/adbot/include/chromedriver.exe')
 
 def open_profile(profile_id):
     login_url = 'http://localhost:3001/v1.0/auth/login-with-token'
@@ -18,7 +20,7 @@ def open_profile(profile_id):
         'Content-Type': 'application/json'
     }
 
-    print(f"Enviando requisição de login para {login_url} com token {auth_token}...")
+    print(f"Enviando requisição de login para {login_url} com token auth...")
     response = requests.post(login_url, json=request_data, headers=headers)
     if response.status_code == 200: 
         print(f"Login bem-sucedido. Iniciando perfil {profile_id}...")
@@ -29,7 +31,7 @@ def open_profile(profile_id):
             port = str(response_json['automation']['port'])
             print(f"Perfil {profile_id} iniciado na porta {port}.")
             
-            chrome_drive_path = Service("C:/Users/HP/Desktop/adbot/include/chromedriver.exe")
+            chrome_drive_path = Service(chromedriver_path)
             options = webdriver.ChromeOptions()
             options.debugger_address = '127.0.0.1:' + port
 

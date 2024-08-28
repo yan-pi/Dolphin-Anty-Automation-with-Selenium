@@ -14,13 +14,14 @@ def list_browsers():
     }
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
+        print("Browsers listed successfully.", response.json())
         return response.json()
     else:
         print("Error listing browsers:", response.text)
         return []
 
 def delete_browser(profile_id):
-    url = f"https://dolphin-anty-api.com/browser_profiles/{profile_id}"
+    url = f"https://dolphin-anty-api.com/browser_profiles?forceDelete=1"
     headers = {
         'Authorization': 'Bearer ' + auth_token
     }

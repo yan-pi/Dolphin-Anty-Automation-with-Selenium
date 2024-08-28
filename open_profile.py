@@ -1,8 +1,12 @@
 import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+import os
+from dotenv import load_dotenv
 
-auth_token = "seu_token_aqui"  # Certifique-se de que este token está correto
+load_dotenv()
+
+auth_token = os.getenv('AUTH_TOKEN')
 
 def open_profile(profile_id):
     login_url = 'http://localhost:3001/v1.0/auth/login-with-token'
@@ -16,7 +20,7 @@ def open_profile(profile_id):
 
     print(f"Enviando requisição de login para {login_url} com token {auth_token}...")
     response = requests.post(login_url, json=request_data, headers=headers)
-    if response.status_code == 200:  # Login bem-sucedido
+    if response.status_code == 200: 
         print(f"Login bem-sucedido. Iniciando perfil {profile_id}...")
         req_url = f'http://localhost:3001/v1.0/browser_profiles/{profile_id}/start?automation=1'
         response = requests.get(req_url)

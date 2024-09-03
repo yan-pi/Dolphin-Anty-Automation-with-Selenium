@@ -21,11 +21,15 @@ def list_browsers():
         return []
 
 def delete_browser(profile_id):
-    url = f"https://dolphin-anty-api.com/browser_profiles?forceDelete=1"
+    url = "https://dolphin-anty-api.com/browser_profiles?forceDelete=1"
     headers = {
-        'Authorization': 'Bearer ' + auth_token
+        'Authorization': 'Bearer ' + auth_token,
+        'Content-Type': 'application/json'
     }
-    response = requests.delete(url, headers=headers)
+    payload = {
+        'ids': [profile_id]
+    }
+    response = requests.delete(url, headers=headers, json=payload)
     if response.status_code == 200:
         print(f"Profile {profile_id} deleted successfully.")
     else:

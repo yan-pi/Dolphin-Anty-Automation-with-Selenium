@@ -24,7 +24,7 @@ def open_profile(profile_id):
     response = requests.post(login_url, json=request_data, headers=headers)
     if response.status_code == 200: 
         print(f"Login bem-sucedido. Iniciando perfil {profile_id}...")
-        req_url = f'http://localhost:3001/v1.0/browser_profiles/{profile_id}/start?automation=1'
+        req_url = f'http://localhost:3001/v1.0/browser_profiles/{profile_id}/start'
         response = requests.get(req_url)
         if response.status_code == 200:
             response_json = response.json()

@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 from create_profile import create_profiles_in_bulk
 from open_profile import open_profile
-from delete_browsers import list_browsers, delete_browser
+from delete_browsers import list_browsers, delete_browser, update_profile_status, close_browsers
 import time
 
 running = False  # Variável global para rastrear o estado atual
@@ -80,24 +80,47 @@ def start_profiles():
     drivers = list_and_open_profiles()
 
     # Mudar estado para "Rodando"
-    button_toggle.config(text="Rodando")
+    button_toggle.config(text="Parar")
     running = True
+
 
 def stop_profiles():
     global running, drivers
     print("Fechando navegadores e excluindo perfis...")
-    for driver in drivers:
-        try:
-            driver.quit()
-        except Exception as e:
-            print(f"Erro ao fechar navegador: {e}")
+
+    # Fechar navegadores abertos
+    close_browsers(drivers)
+    drivers = []  # Limpar a lista de drivers
+
+    # Esperar um pouco para garantir que todos os navegadores foram fechados
+    time.sleep(5)
 
     profiles_response = list_browsers()
     profiles = profiles_response.get('data', [])
     
     for profile in profiles:
         profile_id = profile['id']
-        delete_browser(profile_id)
+        
+        # Marcar o perfil como não em execução
+        if profile.get('running', False):
+            print(f"Perfil {profile_id} ainda está marcado como em execução. Tentando atualizar o status...")
+            try:
+                update_profile_status(profile_id, running=False)
+                time.sleep(2)  # Esperar um pouco após a atualização
+            except Exception as e:
+                print(f"Erro ao atualizar o status do perfil {profile_id}: {e}")
+        
+        # Tentar excluir o perfil
+        try:
+            delete_browser(profile_id)
+            print(f"Perfil {profile_id} excluído com sucesso.")
+        except Exception as e:
+            print(f"Erro ao excluir perfil {profile_id}: {e}")
+    
+    # Mudar estado para "Criar Perfis"
+    button_toggle.config(text="Criar Perfis")
+    running = False
+
     
     # Mudar estado para "Criar Perfis"
     button_toggle.config(text="Criar Perfis")
@@ -107,8 +130,7 @@ def list_and_open_profiles():
     profiles_response = list_browsers()
     profiles = profiles_response.get('data', [])
     
-    drivers = []  # Lista para armazenar todos os drivers abertos
-    
+    opened_drivers = []
     for index, profile in enumerate(profiles):
         profile_id = profile['id']
         print(f"Abrindo perfil {profile_id}...")
@@ -116,7 +138,7 @@ def list_and_open_profiles():
         try:
             driver = open_profile(profile_id)
             if driver:
-                drivers.append(driver)
+                opened_drivers.append(driver)
                 # Mover a janela para uma posição diferente
                 x_offset = (index % 3) * 400  # Mudança horizontal
                 y_offset = (index // 3) * 400  # Mudança vertical
@@ -127,20 +149,18 @@ def list_and_open_profiles():
             print(f"Erro ao iniciar o perfil {profile_id}: {e}")
             continue
 
-    return drivers
+    return opened_drivers
 
 def setup_gui():
-    global button_toggle
+    global button_toggle, entry_num_profiles, text_proxies
     root = tk.Tk()
     root.title("Criar Perfis")
 
     tk.Label(root, text="Número de Perfis:").grid(row=0, column=0)
-    global entry_num_profiles
     entry_num_profiles = tk.Entry(root)
     entry_num_profiles.grid(row=0, column=1)
 
     tk.Label(root, text="Proxies (um por linha):").grid(row=1, column=0)
-    global text_proxies
     text_proxies = tk.Text(root, height=10, width=50)
     text_proxies.grid(row=1, column=1)
 

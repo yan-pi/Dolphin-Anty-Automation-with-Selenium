@@ -1,10 +1,9 @@
-from core.browser.create_profile import create_profiles_in_bulk
 from core.browser.open_profile import open_profile
-from core.browser.delete_profile import list_browsers, delete_browser, update_profile_status, close_browsers
+from core.browser.list_browsers import list_browsers
 import time
 
 def list_and_open_profiles(auth_token):
-    profiles_response = list_browsers()
+    profiles_response = list_browsers(auth_token)
     profiles = profiles_response.get('data', [])
     
     opened_drivers = []

@@ -1,8 +1,6 @@
 import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-
-import time
 import os
 
 chromedriver_path = os.getenv('CHROMEDRIVER_PATH', 'C:/Users/HP/Desktop/adbot/include/chromedriver.exe')
@@ -37,6 +35,6 @@ def open_profile(profile_id, auth_token):
         else:
             print(f"Erro ao iniciar o perfil {profile_id}: {response.status_code} - {response.text}")
             return None
-    else:  # Erro no login
+    else:
         print(f"Erro ao fazer login: {response.status_code} - {response.text}")
         return None

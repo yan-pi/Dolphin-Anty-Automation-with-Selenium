@@ -150,7 +150,6 @@ imports:
  &#8226;   <a href="#enum">enum</a>
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#genericpath">genericpath</a>
- &#8226;   <a href="#gui">gui</a>
  &#8226;   <a href="#heapq">heapq</a>
  &#8226;   <a href="#io">io</a>
  &#8226;   <a href="#keyword">keyword</a>
@@ -173,9 +172,10 @@ imports:
  &#8226;   <a href="#sre_constants">sre_constants</a>
  &#8226;   <a href="#sre_parse">sre_parse</a>
  &#8226;   <a href="#stat">stat</a>
- &#8226;   <a href="#tkinter">tkinter</a>
+ &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#traceback">traceback</a>
  &#8226;   <a href="#types">types</a>
+ &#8226;   <a href="#ui.gui">ui.gui</a>
  &#8226;   <a href="#warnings">warnings</a>
  &#8226;   <a href="#weakref">weakref</a>
 
@@ -1473,25 +1473,6 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="browser_manager"></a>
-  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/browser_manager.py" type="text/plain"><tt>browser_manager</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#create_profile">create_profile</a>
- &#8226;   <a href="#delete_browsers">delete_browsers</a>
- &#8226;   <a href="#open_profile">open_profile</a>
- &#8226;   <a href="#time">time</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#profile_manager">profile_manager</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="builtins"></a>
   <tt>builtins</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
 imported by:
@@ -2200,18 +2181,327 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="create_profile"></a>
-  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/create_profile.py" type="text/plain"><tt>create_profile</tt></a>
+  <a name="core"></a>
+  <a target="code" href="-" type="text/plain"><tt>core</tt></a>
+<span class="moduletype">NamespacePackage</span>  <div class="import">
+imported by:
+    <a href="#core.browser">core.browser</a>
+ &#8226;   <a href="#core.profile">core.profile</a>
+ &#8226;   <a href="#core.proxy">core.proxy</a>
+ &#8226;   <a href="#core.utils">core.utils</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.browser"></a>
+  <a target="code" href="-" type="text/plain"><tt>core.browser</tt></a>
+<span class="moduletype">NamespacePackage</span>  <div class="import">
+imports:
+    <a href="#core">core</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#core.browser.close_browsers">core.browser.close_browsers</a>
+ &#8226;   <a href="#core.browser.create_profiles_in_bulk">core.browser.create_profiles_in_bulk</a>
+ &#8226;   <a href="#core.browser.delete_profiles">core.browser.delete_profiles</a>
+ &#8226;   <a href="#core.browser.list_and_open_profiles">core.browser.list_and_open_profiles</a>
+ &#8226;   <a href="#core.browser.list_browsers">core.browser.list_browsers</a>
+ &#8226;   <a href="#core.browser.open_profile">core.browser.open_profile</a>
+ &#8226;   <a href="#core.browser.update_profile_status">core.browser.update_profile_status</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.browser.close_browsers"></a>
+  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/core/browser/close_browsers.py" type="text/plain"><tt>core.browser.close_browsers</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#json">json</a>
+    <a href="#core.browser">core.browser</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#core.profile.stop_profiles">core.profile.stop_profiles</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.browser.create_profiles_in_bulk"></a>
+  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/core/browser/create_profiles_in_bulk.py" type="text/plain"><tt>core.browser.create_profiles_in_bulk</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.browser">core.browser</a>
+ &#8226;   <a href="#json">json</a>
  &#8226;   <a href="#requests">requests</a>
 
   </div>
   <div class="import">
 imported by:
-    <a href="#browser_manager">browser_manager</a>
- &#8226;   <a href="#gui">gui</a>
+    <a href="#core.profile.start_profiles">core.profile.start_profiles</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.browser.delete_profiles"></a>
+  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/core/browser/delete_profiles.py" type="text/plain"><tt>core.browser.delete_profiles</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.browser">core.browser</a>
+ &#8226;   <a href="#requests">requests</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#core.profile.stop_profiles">core.profile.stop_profiles</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.browser.list_and_open_profiles"></a>
+  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/core/browser/list_and_open_profiles.py" type="text/plain"><tt>core.browser.list_and_open_profiles</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.browser">core.browser</a>
+ &#8226;   <a href="#core.browser.list_browsers">core.browser.list_browsers</a>
+ &#8226;   <a href="#core.browser.open_profile">core.browser.open_profile</a>
+ &#8226;   <a href="#time">time</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#core.profile.start_profiles">core.profile.start_profiles</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.browser.list_browsers"></a>
+  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/core/browser/list_browsers.py" type="text/plain"><tt>core.browser.list_browsers</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.browser">core.browser</a>
+ &#8226;   <a href="#requests">requests</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#core.browser.list_and_open_profiles">core.browser.list_and_open_profiles</a>
+ &#8226;   <a href="#core.profile.stop_profiles">core.profile.stop_profiles</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.browser.open_profile"></a>
+  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/core/browser/open_profile.py" type="text/plain"><tt>core.browser.open_profile</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.browser">core.browser</a>
+ &#8226;   <a href="#core.utils.utils">core.utils.utils</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#requests">requests</a>
+ &#8226;   <a href="#selenium">selenium</a>
+ &#8226;   <a href="#selenium.webdriver">selenium.webdriver</a>
+ &#8226;   <a href="#selenium.webdriver.chrome.service">selenium.webdriver.chrome.service</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#core.browser.list_and_open_profiles">core.browser.list_and_open_profiles</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.browser.update_profile_status"></a>
+  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/core/browser/update_profile_status.py" type="text/plain"><tt>core.browser.update_profile_status</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.browser">core.browser</a>
+ &#8226;   <a href="#requests">requests</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#core.profile.stop_profiles">core.profile.stop_profiles</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.profile"></a>
+  <a target="code" href="-" type="text/plain"><tt>core.profile</tt></a>
+<span class="moduletype">NamespacePackage</span>  <div class="import">
+imports:
+    <a href="#core">core</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#core.profile.create_profile_details">core.profile.create_profile_details</a>
+ &#8226;   <a href="#core.profile.extension_manager">core.profile.extension_manager</a>
+ &#8226;   <a href="#core.profile.start_profiles">core.profile.start_profiles</a>
+ &#8226;   <a href="#core.profile.stop_profiles">core.profile.stop_profiles</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.profile.create_profile_details"></a>
+  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/core/profile/create_profile_details.py" type="text/plain"><tt>core.profile.create_profile_details</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.profile">core.profile</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#core.profile.start_profiles">core.profile.start_profiles</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.profile.extension_manager"></a>
+  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/core/profile/extension_manager.py" type="text/plain"><tt>core.profile.extension_manager</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.profile">core.profile</a>
+ &#8226;   <a href="#core.utils.utils">core.utils.utils</a>
+ &#8226;   <a href="#requests">requests</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#ui.gui">ui.gui</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.profile.start_profiles"></a>
+  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/core/profile/start_profiles.py" type="text/plain"><tt>core.profile.start_profiles</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.browser.create_profiles_in_bulk">core.browser.create_profiles_in_bulk</a>
+ &#8226;   <a href="#core.browser.list_and_open_profiles">core.browser.list_and_open_profiles</a>
+ &#8226;   <a href="#core.profile">core.profile</a>
+ &#8226;   <a href="#core.profile.create_profile_details">core.profile.create_profile_details</a>
+ &#8226;   <a href="#core.proxy.proxy_manager">core.proxy.proxy_manager</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#ui.gui">ui.gui</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.profile.stop_profiles"></a>
+  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/core/profile/stop_profiles.py" type="text/plain"><tt>core.profile.stop_profiles</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.browser.close_browsers">core.browser.close_browsers</a>
+ &#8226;   <a href="#core.browser.delete_profiles">core.browser.delete_profiles</a>
+ &#8226;   <a href="#core.browser.list_browsers">core.browser.list_browsers</a>
+ &#8226;   <a href="#core.browser.update_profile_status">core.browser.update_profile_status</a>
+ &#8226;   <a href="#core.profile">core.profile</a>
+ &#8226;   <a href="#time">time</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#ui.gui">ui.gui</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.proxy"></a>
+  <a target="code" href="-" type="text/plain"><tt>core.proxy</tt></a>
+<span class="moduletype">NamespacePackage</span>  <div class="import">
+imports:
+    <a href="#core">core</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#core.proxy.proxy_manager">core.proxy.proxy_manager</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.proxy.proxy_manager"></a>
+  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/core/proxy/proxy_manager.py" type="text/plain"><tt>core.proxy.proxy_manager</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.proxy">core.proxy</a>
+ &#8226;   <a href="#tkinter">tkinter</a>
+ &#8226;   <a href="#tkinter.messagebox">tkinter.messagebox</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#core.profile.start_profiles">core.profile.start_profiles</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.utils"></a>
+  <a target="code" href="-" type="text/plain"><tt>core.utils</tt></a>
+<span class="moduletype">NamespacePackage</span>  <div class="import">
+imports:
+    <a href="#core">core</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#core.utils.utils">core.utils.utils</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.utils.utils"></a>
+  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/core/utils/utils.py" type="text/plain"><tt>core.utils.utils</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.utils">core.utils</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#core.browser.open_profile">core.browser.open_profile</a>
+ &#8226;   <a href="#core.profile.extension_manager">core.profile.extension_manager</a>
 
   </div>
 
@@ -2313,23 +2603,6 @@ imports:
 imported by:
     <a href="#fractions">fractions</a>
  &#8226;   <a href="#statistics">statistics</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="delete_browsers"></a>
-  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/delete_browsers.py" type="text/plain"><tt>delete_browsers</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#json">json</a>
- &#8226;   <a href="#requests">requests</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#browser_manager">browser_manager</a>
 
   </div>
 
@@ -5666,26 +5939,6 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="gui"></a>
-  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/gui.py" type="text/plain"><tt>gui</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#create_profile">create_profile</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#profile_manager">profile_manager</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#tkinter">tkinter</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#main.py">main.py</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="gzip"></a>
   <a target="code" href="///C:/Users/yanfe/AppData/Local/Programs/Python/Python312/Lib/gzip.py" type="text/plain"><tt>gzip</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
@@ -6020,7 +6273,6 @@ imports:
  &#8226;   <a href="#importlib">importlib</a>
  &#8226;   <a href="#importlib._bootstrap">importlib._bootstrap</a>
  &#8226;   <a href="#importlib._bootstrap_external">importlib._bootstrap_external</a>
- &#8226;   <a href="#importlib.machinery">importlib.machinery</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#warnings">warnings</a>
 
@@ -6156,8 +6408,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#importlib">importlib</a>
- &#8226;   <a href="#importlib.abc">importlib.abc</a>
+    <a href="#importlib.abc">importlib.abc</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#py_compile">py_compile</a>
@@ -6733,8 +6984,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#charset_normalizer.models">charset_normalizer.models</a>
- &#8226;   <a href="#create_profile">create_profile</a>
- &#8226;   <a href="#delete_browsers">delete_browsers</a>
+ &#8226;   <a href="#core.browser.create_profiles_in_bulk">core.browser.create_profiles_in_bulk</a>
  &#8226;   <a href="#json.decoder">json.decoder</a>
  &#8226;   <a href="#json.encoder">json.encoder</a>
  &#8226;   <a href="#json.scanner">json.scanner</a>
@@ -7120,27 +7370,6 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="open_profile"></a>
-  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/open_profile.py" type="text/plain"><tt>open_profile</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#os">os</a>
- &#8226;   <a href="#requests">requests</a>
- &#8226;   <a href="#selenium">selenium</a>
- &#8226;   <a href="#selenium.webdriver">selenium.webdriver</a>
- &#8226;   <a href="#selenium.webdriver.chrome.service">selenium.webdriver.chrome.service</a>
- &#8226;   <a href="#time">time</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#browser_manager">browser_manager</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="operator"></a>
   <a target="code" href="///C:/Users/yanfe/AppData/Local/Programs/Python/Python312/Lib/operator.py" type="text/plain"><tt>operator</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
@@ -7199,13 +7428,14 @@ imported by:
  &#8226;   <a href="#certifi.core">certifi.core</a>
  &#8226;   <a href="#charset_normalizer.api">charset_normalizer.api</a>
  &#8226;   <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#core.browser.open_profile">core.browser.open_profile</a>
+ &#8226;   <a href="#core.utils.utils">core.utils.utils</a>
  &#8226;   <a href="#email.utils">email.utils</a>
  &#8226;   <a href="#fnmatch">fnmatch</a>
  &#8226;   <a href="#genericpath">genericpath</a>
  &#8226;   <a href="#getopt">getopt</a>
  &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#gettext">gettext</a>
- &#8226;   <a href="#gui">gui</a>
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
@@ -7221,7 +7451,6 @@ imported by:
  &#8226;   <a href="#mimetypes">mimetypes</a>
  &#8226;   <a href="#netrc">netrc</a>
  &#8226;   <a href="#ntpath">ntpath</a>
- &#8226;   <a href="#open_profile">open_profile</a>
  &#8226;   <a href="#os.path">os.path</a>
  &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
@@ -7254,6 +7483,7 @@ imported by:
  &#8226;   <a href="#tempfile">tempfile</a>
  &#8226;   <a href="#threading">threading</a>
  &#8226;   <a href="#tkinter">tkinter</a>
+ &#8226;   <a href="#ui.gui">ui.gui</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
  &#8226;   <a href="#urllib3.connection">urllib3.connection</a>
  &#8226;   <a href="#urllib3.contrib.emscripten.connection">urllib3.contrib.emscripten.connection</a>
@@ -7491,41 +7721,6 @@ imports:
 imported by:
     <a href="#pickle">pickle</a>
  &#8226;   <a href="#sysconfig">sysconfig</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="profile_manager"></a>
-  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/profile_manager.py" type="text/plain"><tt>profile_manager</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#browser_manager">browser_manager</a>
- &#8226;   <a href="#proxy_manager">proxy_manager</a>
- &#8226;   <a href="#time">time</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#gui">gui</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="proxy_manager"></a>
-  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/proxy_manager.py" type="text/plain"><tt>proxy_manager</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#tkinter">tkinter</a>
- &#8226;   <a href="#tkinter.messagebox">tkinter.messagebox</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#profile_manager">profile_manager</a>
 
   </div>
 
@@ -7920,9 +8115,12 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#create_profile">create_profile</a>
- &#8226;   <a href="#delete_browsers">delete_browsers</a>
- &#8226;   <a href="#open_profile">open_profile</a>
+    <a href="#core.browser.create_profiles_in_bulk">core.browser.create_profiles_in_bulk</a>
+ &#8226;   <a href="#core.browser.delete_profiles">core.browser.delete_profiles</a>
+ &#8226;   <a href="#core.browser.list_browsers">core.browser.list_browsers</a>
+ &#8226;   <a href="#core.browser.open_profile">core.browser.open_profile</a>
+ &#8226;   <a href="#core.browser.update_profile_status">core.browser.update_profile_status</a>
+ &#8226;   <a href="#core.profile.extension_manager">core.profile.extension_manager</a>
  &#8226;   <a href="#requests">requests</a>
  &#8226;   <a href="#requests.__version__">requests.__version__</a>
  &#8226;   <a href="#requests._internal_utils">requests._internal_utils</a>
@@ -8411,7 +8609,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#open_profile">open_profile</a>
+    <a href="#core.browser.open_profile">core.browser.open_profile</a>
  &#8226;   <a href="#selenium.common">selenium.common</a>
  &#8226;   <a href="#selenium.types">selenium.types</a>
  &#8226;   <a href="#selenium.webdriver">selenium.webdriver</a>
@@ -8529,7 +8727,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#open_profile">open_profile</a>
+    <a href="#core.browser.open_profile">core.browser.open_profile</a>
  &#8226;   <a href="#selenium">selenium</a>
  &#8226;   <a href="#selenium.webdriver.chrome">selenium.webdriver.chrome</a>
  &#8226;   <a href="#selenium.webdriver.chrome.remote_connection">selenium.webdriver.chrome.remote_connection</a>
@@ -8621,7 +8819,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#open_profile">open_profile</a>
+    <a href="#core.browser.open_profile">core.browser.open_profile</a>
  &#8226;   <a href="#selenium.webdriver">selenium.webdriver</a>
  &#8226;   <a href="#selenium.webdriver.chrome.webdriver">selenium.webdriver.chrome.webdriver</a>
 
@@ -10868,6 +11066,8 @@ imported by:
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#core.browser.open_profile">core.browser.open_profile</a>
+ &#8226;   <a href="#core.utils.utils">core.utils.utils</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#dis">dis</a>
  &#8226;   <a href="#email._header_value_parser">email._header_value_parser</a>
@@ -10884,7 +11084,6 @@ imported by:
  &#8226;   <a href="#getopt">getopt</a>
  &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#gettext">gettext</a>
- &#8226;   <a href="#gui">gui</a>
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#http.client">http.client</a>
  &#8226;   <a href="#importlib">importlib</a>
@@ -10895,6 +11094,7 @@ imported by:
  &#8226;   <a href="#linecache">linecache</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#logging">logging</a>
+ &#8226;   <a href="#main.py">main.py</a>
  &#8226;   <a href="#mimetypes">mimetypes</a>
  &#8226;   <a href="#ntpath">ntpath</a>
  &#8226;   <a href="#os">os</a>
@@ -10933,6 +11133,7 @@ imported by:
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#typing">typing</a>
  &#8226;   <a href="#typing_extensions">typing_extensions</a>
+ &#8226;   <a href="#ui.gui">ui.gui</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
  &#8226;   <a href="#urllib3">urllib3</a>
  &#8226;   <a href="#urllib3.connection">urllib3.connection</a>
@@ -11127,7 +11328,8 @@ imported by:
     <a href="#_datetime">_datetime</a>
  &#8226;   <a href="#_pydatetime">_pydatetime</a>
  &#8226;   <a href="#_strptime">_strptime</a>
- &#8226;   <a href="#browser_manager">browser_manager</a>
+ &#8226;   <a href="#core.browser.list_and_open_profiles">core.browser.list_and_open_profiles</a>
+ &#8226;   <a href="#core.profile.stop_profiles">core.profile.stop_profiles</a>
  &#8226;   <a href="#datetime">datetime</a>
  &#8226;   <a href="#email._parseaddr">email._parseaddr</a>
  &#8226;   <a href="#email.generator">email.generator</a>
@@ -11137,8 +11339,6 @@ imported by:
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#http.cookies">http.cookies</a>
  &#8226;   <a href="#logging">logging</a>
- &#8226;   <a href="#open_profile">open_profile</a>
- &#8226;   <a href="#profile_manager">profile_manager</a>
  &#8226;   <a href="#queue">queue</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#requests.auth">requests.auth</a>
@@ -11183,12 +11383,11 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#gui">gui</a>
- &#8226;   <a href="#main.py">main.py</a>
- &#8226;   <a href="#proxy_manager">proxy_manager</a>
+    <a href="#core.proxy.proxy_manager">core.proxy.proxy_manager</a>
  &#8226;   <a href="#tkinter.commondialog">tkinter.commondialog</a>
  &#8226;   <a href="#tkinter.constants">tkinter.constants</a>
  &#8226;   <a href="#tkinter.messagebox">tkinter.messagebox</a>
+ &#8226;   <a href="#ui.gui">ui.gui</a>
 
   </div>
 
@@ -11237,7 +11436,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#proxy_manager">proxy_manager</a>
+    <a href="#core.proxy.proxy_manager">core.proxy.proxy_manager</a>
  &#8226;   <a href="#tkinter">tkinter</a>
 
   </div>
@@ -11534,6 +11733,39 @@ imported by:
  &#8226;   <a href="#urllib3.poolmanager">urllib3.poolmanager</a>
  &#8226;   <a href="#urllib3.util.retry">urllib3.util.retry</a>
  &#8226;   <a href="#urllib3.util.ssltransport">urllib3.util.ssltransport</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="ui"></a>
+  <a target="code" href="-" type="text/plain"><tt>ui</tt></a>
+<span class="moduletype">NamespacePackage</span>  <div class="import">
+imported by:
+    <a href="#ui.gui">ui.gui</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="ui.gui"></a>
+  <a target="code" href="///C:/Users/yanfe/OneDrive/Documentos/repo/Dolphin-Anty-Automation-with-Selenium/ui/gui.py" type="text/plain"><tt>ui.gui</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#core.profile.extension_manager">core.profile.extension_manager</a>
+ &#8226;   <a href="#core.profile.start_profiles">core.profile.start_profiles</a>
+ &#8226;   <a href="#core.profile.stop_profiles">core.profile.stop_profiles</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#tkinter">tkinter</a>
+ &#8226;   <a href="#ui">ui</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#main.py">main.py</a>
 
   </div>
 

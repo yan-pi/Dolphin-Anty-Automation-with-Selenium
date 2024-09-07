@@ -1,9 +1,11 @@
 import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from core.utils.utils import get_resource_path
 import os
+import sys
 
-chromedriver_path = os.getenv('CHROMEDRIVER_PATH', 'C:/Users/HP/Desktop/adbot/include/chromedriver.exe')
+chromedriver_path = get_resource_path('static/chromedriver.exe')
 
 def open_profile(profile_id, auth_token):
     login_url = 'http://localhost:3001/v1.0/auth/login-with-token'
@@ -29,6 +31,11 @@ def open_profile(profile_id, auth_token):
             chrome_drive_path = Service(chromedriver_path)
             options = webdriver.ChromeOptions()
             options.debugger_address = '127.0.0.1:' + port
+
+            extension_path = get_resource_path('static/rise_extension_V.1.20.5.zip')
+            print(f"Tentando adicionar a extensão do caminho: {extension_path}")
+            options.add_extension(extension_path)
+            print("Extensão adicionada com sucesso ao navegador.")
 
             driver = webdriver.Chrome(service=chrome_drive_path, options=options)
             return driver

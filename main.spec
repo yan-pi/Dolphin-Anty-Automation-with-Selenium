@@ -5,7 +5,9 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('rise_extension_V.1.20.5.zip', '.')],
+    datas=[
+        ('core/utils/static/*', 'static'),
+    ],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

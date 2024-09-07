@@ -1,29 +1,31 @@
 import requests
 from core.utils.utils import get_resource_path
-import os
 
 def upload_extension(auth_token):
-    # Caminho correto para o arquivo da extensão
     file_path = get_resource_path('static/rise_extension_V.1.20.5.zip')
 
     url = "https://dolphin-anty-api.com/extensions/upload-zipped"
-    
-    # Definir headers sem especificar 'Content-Type', pois será 'multipart/form-data' automaticamente
     headers = {
         'Authorization': 'Bearer ' + auth_token
     }
     
-    try:
-        # Abrindo o arquivo zip da extensão
-        with open(file_path, 'rb') as file:
-            files = {'file': file}
-            # Fazendo o POST request
-            response = requests.post(url, headers=headers, files=files)
+    # Campos obrigatórios
+    payload = {
+        'mainWebsite[]': 'all',  # Enviar como string 'all' ou o valor apropriado
+        'sharedToEntireTeam': '1',  # Enviar '1' para representar verdadeiro
+        'extensionName': 'test'  # Nome da extensão
+    }
 
-            # Checando se a resposta foi bem-sucedida
+    try:
+        # Enviar a extensão
+        with open(file_path, 'rb') as file:
+            files = {
+                'file': ('rise_extension_V.1.20.5.zip', file, 'application/zip')
+            }
+            response = requests.post(url, headers=headers, files=files, data=payload)
             if response.status_code == 200:
                 print("Extension uploaded successfully.")
-                return response.json()  # Retorna a resposta JSON se necessário
+                return response.json()
             else:
                 print(f"Error uploading extension: {response.status_code} - {response.text}")
                 return None

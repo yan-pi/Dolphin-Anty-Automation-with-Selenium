@@ -5,7 +5,7 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('rise_extension_V.1.20.5.zip', '.')],
+    datas=[('static/chromedriver.exe', 'static'), ('static/rise_extension_V.1.20.5.zip', 'static')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
